@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 02 Jun 2024 pada 14.54
+-- Waktu pembuatan: 03 Jun 2024 pada 04.58
 -- Versi server: 8.0.30
 -- Versi PHP: 8.1.10
 
@@ -68,11 +68,11 @@ CREATE TABLE `cats057` (
 --
 
 INSERT INTO `cats057` (`id_057`, `name_057`, `type_057`, `gender_057`, `age_057`, `photo_057`, `price_057`, `sold_057`) VALUES
-(1, 'Jack Ma', 'Domestic', 'Male', 3, 'realistic-cat_11zon_(1)_11zon1.jpg', 250, 1),
+(1, 'Jack Ma', 'Angora', 'Male', 3, 'realistic-cat_11zon_(1)_11zon1.jpg', 250, 1),
 (3, 'Hello Kitty', 'Angora', 'Female', 1, 'default.png', 175, 1),
-(9, 'Whiskers', 'Domestik', 'Female', 4, 'default.png', 77, 0),
+(9, 'Whiskers', 'Domestik', 'Female', 4, 'default.png', 77, 1),
 (10, 'Luna', 'Maine Coon', 'Female', 2, 'default.png', 199, 1),
-(11, 'Mittens', 'Angora', 'Male', 5, 'default.png', 98, 0),
+(11, 'Mittenss', 'Angora', 'Male', 5, 'default.png', 98, 0),
 (12, 'Oliver', 'Persian', 'Male', 6, 'default.png', 87, 0),
 (13, 'Smokey', 'Russian Blue', 'Male', 9, 'default.png', 115, 0),
 (14, 'Charlie', 'Domestik', 'Male', 7, 'default.png', 77, 0),
@@ -148,7 +148,8 @@ INSERT INTO `catsales057` (`sale_id_057`, `sale_date_057`, `cat_id_057`, `custom
 (2, '2024-03-24 05:20:58', 3, 'Koko', 'Bandung', '08445563195'),
 (3, '2024-03-25 15:29:23', 2, 'Beni', 'Padang', '08996647316'),
 (4, '2024-04-30 17:15:33', 10, 'Jejenk', 'Garut', '08996647432'),
-(5, '2024-06-02 07:27:35', 1, '', '', '');
+(5, '2024-06-02 07:27:35', 1, '', '', ''),
+(6, '2024-06-03 04:07:11', 9, '', '', '');
 
 -- --------------------------------------------------------
 
@@ -173,7 +174,8 @@ INSERT INTO `users057` (`userid_057`, `username_057`, `password_057`, `usertype_
 (1, 'tes123', '$2y$10$E98Q0JBhWp6C/kNFQorG3e5PBhZpAziOY88VIVnTAvpV82iqeBHCy', 'Manager', 'Tes', 'images.png'),
 (2, 'Bedol123', '$2y$10$JB7BQLBuOvJBQFN5ETqqJeu07QrY7Sf1CqvuDD2G5l0NV6DVlr/vu', 'Cassier', 'Bedodo Jook', 'default.png'),
 (3, 'tatank445', '$2y$10$A6QnrjYY7RtgBPwWjrHPDec6/Dxmn/uWbMQQT4rl5qIww9/4OvO4S', 'Manager', 'Tatang Suratang', 'default.png'),
-(4, 'jasuke567', '$2y$10$ed5oIcS11mcaBd9R4IStDuqBIkvYRk4gvRg48Wk/c5jtfoWcsF8Sq', 'Cassier', 'Jajang Sukma Keramat', 'default.png');
+(4, 'jasuke567', '$2y$10$eMHEbegDrpKfRvLidavOFuf8RH3maF6SUH5GjwQzWYWc4GgGigshG', 'Cassier', 'Jajang Sukma Keramat', 'yuga_azka_foto1.jpg'),
+(5, 'azka123', '$2y$10$AEmLO96NXekU5AUDoKc/ru/iu2WVp33GrGo0PHZnEL91HOofO/Yre', 'Cassier', 'Azka', 'default.png');
 
 --
 -- Indexes for dumped tables
@@ -223,13 +225,13 @@ ALTER TABLE `cats057`
 -- AUTO_INCREMENT untuk tabel `catsales057`
 --
 ALTER TABLE `catsales057`
-  MODIFY `sale_id_057` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `sale_id_057` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `users057`
 --
 ALTER TABLE `users057`
-  MODIFY `userid_057` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `userid_057` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
