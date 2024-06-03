@@ -41,7 +41,7 @@
         </ul>
     </div>
     <div class="container-fluid mt-5">
-        <h3 style="text-align: center;">CATS FORM</h3>
+
         <?php
 
         $name = '';
@@ -59,6 +59,8 @@
             $price = $cat->price_057;
         }
         ?>
+        <div style="color: red"><?= validation_errors() ?></div>
+        <h3 style="text-align: center;">CATS FORM</h3>
 
         <div class="container align-items-center mb-5">
             <div class="row justify-content-center mt-5">
@@ -69,11 +71,11 @@
                             <form action="" method="post">
                                 <div class="mb-3">
                                     <label for="email" class="form-label">Name</label>
-                                    <input type="text" class="form-control" name="name_057" value="<?= $name ?>" required>
+                                    <input type="text" class="form-control" name="name_057" value="<?= $name ?>">
                                 </div>
                                 <div class="mb-3">
                                     <label for="password" class="form-label">Type</label>
-                                    <select class="form-select" name="type_057" required>
+                                    <select class="form-select" name="type_057">
                                         <option value="">Choose type</option>
                                         <?php foreach ($category as $cate) : ?>
                                             <option value="<?= $cate->category_name_057 ?>" <?= set_select('type_057', $cate->category_name_057, $type == $cate->category_name_057 ? TRUE : FALSE) ?>><?= $cate->category_name_057 ?></option>
@@ -93,11 +95,11 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="email" class="form-label">Age</label>
-                                    <input type="number" class="form-control" name="age_057" value="<?= $age ?>" required>
+                                    <input type="number" class="form-control" name="age_057" value="<?= $age ?>">
                                 </div>
                                 <div class="mb-3">
                                     <label for="email" class="form-label">Price</label>
-                                    <input type="number" class="form-control" name="price_057" value="<?= $price ?>" required>
+                                    <input type="number" class="form-control" name="price_057" value="<?= $price ?>">
                                 </div>
                                 <div class="d-grid gap-2">
                                     <input type="submit" name="submit" class="btn btn-primary"></input>

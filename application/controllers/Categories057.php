@@ -10,7 +10,7 @@ class Categories057 extends CI_Controller
         // Check if user is logged in and redirect if not (using session)
         if (!$this->session->userdata('username')) redirect('auth057/login');
         // Check if user type is 'Manager' and redirect if not
-        if ($this->session->userdata('usertype') != 'Manager') redirect('welcome');
+        // if ($this->session->userdata('usertype') != 'Manager') redirect('welcome');
         // Load the Categories057_model model
         $this->load->model('Categories057_model');
     }
@@ -26,7 +26,7 @@ class Categories057 extends CI_Controller
     public function add()
     {
         // Jika ada input POST / klik  tombol submit
-        if ($this->input->post('submit')) {
+        if ($this->input->post('submit' && $this->validation('category'))) {
             // Memuat model Categories057_model
             $this->load->model('Categories057_model');
             // Membuat kategori baru
@@ -59,5 +59,23 @@ class Categories057 extends CI_Controller
         $this->Categories057_model->delete($id);
         // Arahkan pengguna ke controller utama categories
         redirect('categories057');
+    }
+
+    private function validation($type)
+    {
+        // Memuat library form_validation.
+        $this->load->library('form_validation');
+        // Jika tipe validasi adalah 'login', lakukan validasi untuk username dan password.
+        if ($type == 'category') {
+            $this->form_validation->set_rules('name_057', 'Category Name', 'required');
+            $this->form_validation->set_rules('desc_057', 'Category Description', 'required');
+        }
+
+        // Menjalankan proses validasi dan mengembalikan hasilnya.
+        if ($this->form_validation->run()) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
     }
 }

@@ -11,7 +11,7 @@ class Cats057 extends CI_Controller
         // Check if user is logged in and redirect if not (using session)
         if (!$this->session->userdata('username')) redirect('auth057/login');
         // Check if user type is 'Manager' and redirect if not
-        if ($this->session->userdata('usertype') != 'Manager') redirect('welcome');
+        // if ($this->session->userdata('usertype') != 'Manager') redirect('welcome');
         // Load the Cats057_model and Categories057_model models
         $this->load->model('Cats057_model');
         $this->load->model('Categories057_model');
@@ -44,7 +44,7 @@ class Cats057 extends CI_Controller
     public function add()
     {
         // Check if form is submitted
-        if ($this->input->post('submit')) {
+        if ($this->input->post('submit' && $this->validation('cat'))) {
             // Load the Cats057_model model again (redundant, can be in constructor)
             $this->load->model('cats057_model');
             // Create a new cat using the model's create() function
@@ -150,7 +150,7 @@ class Cats057 extends CI_Controller
     public function sale($id)
     {
         // Checks if the form is submitted (submit button clicked).
-        if ($this->input->post('submit')) {
+        if ($this->input->post('submit' && $this->validation(''))) {
             $this->Cats057_model->sale($id); // Menandai kucing sebagai terjual. / Calls the sale() function in the Cats057_model to handle marking the cat with $id as sold.
             // Memeriksa apakah cat berhasil dijual.
             if ($this->db->affected_rows() > 0) {
@@ -177,5 +177,30 @@ class Cats057 extends CI_Controller
         $data['sales'] = $this->Cats057_model->sales();
         // Memuat tampilan untuk daftar penjualan kucing. / Loads the sale list view (cats/sale_list_057) and passes the list of sold cats ($data) to the view.
         $this->load->view('cats/sale_list_057', $data);
+    }
+
+    private function validation($type)
+    {
+        // Memuat library form_validation.
+        $this->load->library('form_validation');
+        // Jika tipe validasi adalah 'login', lakukan validasi untuk username dan password.
+        if ($type == 'cat') {
+            $this->form_validation->set_rules('name_057', 'Cat Name', 'required');
+            $this->form_validation->set_rules('type_057', 'Cat Type', 'required');
+            $this->form_validation->set_rules('gender_057', 'Cat Gender', 'required');
+            $this->form_validation->set_rules('age_057', 'Cat Age', 'required');
+            $this->form_validation->set_rules('price_057', 'Cat Price', 'required');
+        } else {
+            $this->form_validation->set_rules('customer_name_057', 'Customer Name', 'required');
+            $this->form_validation->set_rules('customer_address_057', 'Customer Address', 'required');
+            $this->form_validation->set_rules('customer_phone_057', 'Customer Phone', 'required');
+        }
+
+        // Menjalankan proses validasi dan mengembalikan hasilnya.
+        if ($this->form_validation->run()) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
     }
 }

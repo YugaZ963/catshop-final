@@ -41,6 +41,7 @@
         </ul>
     </div>
     <div class="container-fluid mt-5">
+        <div style="color: red"><?= validation_errors() ?></div>
         <h3 style="text-align: center;">SALES FORM</h3>
 
         <div class="container align-items-center mb-5">

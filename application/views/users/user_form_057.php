@@ -41,6 +41,7 @@
         </ul>
     </div>
     <div class="container-fluid mt-5">
+        <div style="color: red"><?= validation_errors() ?></div>
         <h4 style="text-align: center;">USERS FORM</h4>
         <?php
 
@@ -67,7 +68,7 @@
                             <form action="" method="post">
                                 <div class="mb-3">
                                     <label for="email" class="form-label">Username</label>
-                                    <input type="text" class="form-control" name="username_057" value="<?= $username ?>" required>
+                                    <input type="text" class="form-control" name="username_057" value="<?= $username ?>">
                                 </div>
                                 <div class="mb-3">
                                     <label for="email" class="form-label">User Type : </label>

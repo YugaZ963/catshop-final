@@ -40,7 +40,8 @@
         </ul>
     </div>
     <div class="container-fluid mt-5">
-        <h4 style="text-align: center;">CATEGOTY FORM</h4>
+        <div style="color: red"><?= validation_errors() ?></div>
+        <h4 style="text-align: center;">CATEGORY FORM</h4>
         <?php
 
         $name = '';
@@ -62,7 +63,7 @@
                             <form action="" method="post">
                                 <div class="mb-3">
                                     <label for="email" class="form-label">Name</label>
-                                    <input type="text" class="form-control" name="name_057" value="<?= $name ?>" required>
+                                    <input type="text" class="form-control" name="name_057" value="<?= $name ?>">
                                 </div>
                                 <div class="mb-3">
                                     <label for="email" class="form-label">Description</label>

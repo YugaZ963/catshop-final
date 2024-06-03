@@ -10,7 +10,7 @@ class Users057 extends CI_Controller
         // jika tidak ada sesseion username, arahkan ke form login
         if (!$this->session->userdata('username')) redirect('auth057/login');
         // jika tipe user bukan Manager , arahkan ke home
-        if ($this->session->userdata('usertype') != 'Manager') redirect('welcome');
+        // if ($this->session->userdata('usertype') != 'Manager') redirect('welcome');
         // muat model Auth057_model dan Users057_model
         $this->load->model("Auth057_model");
         $this->load->model('Users057_model');
@@ -27,7 +27,7 @@ class Users057 extends CI_Controller
     public function add()
     {
         // jika tombol submit di klik 
-        if ($this->input->post('submit')) {
+        if ($this->input->post('submit') && $this->validation('user')) {
             // muat Users057_model
             $this->load->model('Users057_model');
             // Panggil fungsi create pada Users057_model untuk membuat user
@@ -115,5 +115,24 @@ class Users057 extends CI_Controller
 
         // Arahkan pengguna ke controller users057 fungsi utama
         redirect('users057');
+    }
+
+    private function validation($type)
+    {
+        // Memuat library form_validation.
+        $this->load->library('form_validation');
+        // Jika tipe validasi adalah 'login', lakukan validasi untuk username dan password.
+        if ($type == 'user') {
+            $this->form_validation->set_rules('username_057', 'Username', 'required');
+            $this->form_validation->set_rules('usertype_057', 'User Type', 'required');
+            $this->form_validation->set_rules('fullname_057', 'Full Name', 'required');
+        }
+
+        // Menjalankan proses validasi dan mengembalikan hasilnya.
+        if ($this->form_validation->run()) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
     }
 }

@@ -94,7 +94,7 @@ class Auth057 extends CI_Controller
         // Konfigurasi untuk proses upload foto pengguna.
         $config['upload_path'] = './uploads/users/';
         $config['allowed_types'] = 'gif|jpg|png';
-        $config['max_size']     = '100';
+        $config['max_size']     = '100000';
         $config['max_width'] = '1024';
         $config['max_height'] = '768';
 
